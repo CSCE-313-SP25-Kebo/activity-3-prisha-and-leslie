@@ -33,7 +33,7 @@ int main(int argc, char *argv[])
     {
         cout << "Hello from the child process!" << endl;
         /* TODO: PRINT THE PARENT PID value: "The parent process ID is $ID" */
-        std::cout << "The parent process ID is"<< getppid();
+        std::cout << "The parent process ID is"<< getppid() << endl;
 
         if (option % 2 == 0) // if the option number is even, execute the command ls -l and terminate normally
         {
@@ -42,11 +42,10 @@ int main(int argc, char *argv[])
             sleep(6);
 
             /* TODO: EXECUTE THE COMMAND ls -l USING EXECVP*/
-            char *args[] =  {(char*)"ls", (char*)"-l", NULL};
+            char *args[] =  {(char*)"ls", (char*) "-l", NULL};
             execvp(args[0], args);
 
-            perror("execvp");
-            exit(1);
+            
 
         }
         else // if the option number is odd, terminate with a kill signal
@@ -60,7 +59,7 @@ int main(int argc, char *argv[])
         int status;
 
         /* TODO: WAIT FOR CHILD PROCESS TO FINISH */
-        wait(&status);
+        wait(NULL);
 
         cout << "\nHello from the parent process!" << endl;
 
