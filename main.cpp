@@ -22,14 +22,14 @@ int main(int argc, char *argv[])
     }
 
     /* TODO: FORK A NEW PROCESS */
-    fork();
+    pid_t pid = fork();
 
-    if (fork()>0/* TODO: CONDITION IF FORK FAILS*/)
+    if (pid<0/* TODO: CONDITION IF FORK FAILS*/)
     {
         cout << "Fork failed" << endl;
         return 1;
     }
-    else if (fork()==0/* TODO: CONDITION IF CHILD PROCESS */)
+    else if (pid==0/* TODO: CONDITION IF CHILD PROCESS */)
     {
         cout << "Hello from the child process!" << endl;
         /* TODO: PRINT THE PARENT PID value: "The parent process ID is $ID" */
@@ -55,7 +55,7 @@ int main(int argc, char *argv[])
             kill(getpid(), SIGINT);
         }
     }
-    else if (fork() > 0 /*TODO: CONDITION IF PARENT PROCESS*/)
+    else if (pid > 0 /*TODO: CONDITION IF PARENT PROCESS*/)
     {
         int status;
 
