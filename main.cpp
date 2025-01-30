@@ -22,7 +22,7 @@ int main(int argc, char *argv[])
     }
 
     /* TODO: FORK A NEW PROCESS */
-    fork()
+    fork();
 
     if (fork()>0/* TODO: CONDITION IF FORK FAILS*/)
     {
