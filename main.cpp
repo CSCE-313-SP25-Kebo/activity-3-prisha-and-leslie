@@ -64,7 +64,7 @@ int main(int argc, char *argv[])
         cout << "\nHello from the parent process!" << endl;
 
         /* TODO: PRINT THE CHILD PID value: "The child process ID is $ID" */
-        std::cout << "The child process ID is"<< getpid();
+        std::cout << "The child process ID is $ID"<< pid;
 
 
         /* TODO: PRINT THE EXIT STATUS OF THE CHILD PROCESS BASED waitpid().
